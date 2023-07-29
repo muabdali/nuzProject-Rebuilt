@@ -23,5 +23,20 @@ class screenshotClass:
         screenshot = pyautogui.screenshot(region=(x,y,width,height))
         screenshot.save(filepath)
 
-ia = screenshotClass()
-ia.takeSection(section="Route", gen="fireRed")
+
+
+
+"""
+Summary:
+
+takeSection requires section, and gen variables.
+The Section should be one of "Route" or "Caught", which would capture the Route or Caught pokemon respectively. 
+Gen is which generation of game. For example, to catch the Route of Fire Red, you would need different image dimensions than
+Emerald. 
+
+
+takeScreenshot gets called from takeSection. It requires the filepath, x,y,width and height, which are the dimensions of the
+screenshot requested. All of these variables are given automatically from takeSection and they vary(able) based on which
+section was requested.
+
+"""
