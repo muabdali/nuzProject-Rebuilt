@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+autoLocke/__init__.py
+autoLocke/Files/__init__.py
+autoLocke/Files/Data/CordsDict.py
+autoLocke/Files/Data/__init__.py
+autoLocke/Functions/ImageGrab.py
+autoLocke/Functions/__init__.py
+autoLocke/Functions/tesseract.py
+gusml.egg-info/PKG-INFO
+gusml.egg-info/SOURCES.txt
+gusml.egg-info/dependency_links.txt
+gusml.egg-info/top_level.txt
