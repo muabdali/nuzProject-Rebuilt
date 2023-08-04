@@ -18,3 +18,14 @@ class imgProcess():
 
 ia = imgProcess()
 ia.imageEnhance(imagePath='autoLocke/Files/Images/ocrTests/Route1FireRed.png')
+
+
+"""
+imageEnhance contains one input variable, which is imagePath.
+The imagePath variable should be the path to the image that needs to be processed and extracted.
+
+the enhance process is simple, all it does is remove the white background and possibly the gray dropshadow.
+This seems to be enough for fire red routes. 
+
+
+"""
