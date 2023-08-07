@@ -16,11 +16,11 @@ class imgProcess():
         result = cv2.bitwise_and(img, img, mask=~white_mask)
         print(pytesseract.image_to_string(result))
 
+"""
 ia = imgProcess()
 ia.imageEnhance(imagePath='autoLocke/Files/Images/ocrTests/Route1FireRed.png')
 
 
-"""
 imageEnhance contains one input variable, which is imagePath.
 The imagePath variable should be the path to the image that needs to be processed and extracted.
 

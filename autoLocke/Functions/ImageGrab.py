@@ -4,12 +4,19 @@ from autoLocke.Files.Data.CordsDict import routeCordDictionary, caughtRouteDicti
 
 class screenshotClass:
     def __init__(self):
-        self.routeDict = routeCordDictionary
+        self.routeDict = {
+            'fireRed':[242, 47, 745, 121],
+        }
+
         self.caughtDict = caughtRouteDictionary
+
+
 
 
     # Requires the section (Route or Caught), and Generation because different games have different ss cords.
     # Takes the section and assigns it the appropriate list from routeCordDictionary or caughtRouteDictionary
+
+
     def takeSection(self, section, gen):
         routeDictGen = self.routeDict[gen]
         x, y, width, height = routeDictGen[0], routeDictGen[1], routeDictGen[2], routeDictGen[3]
@@ -23,6 +30,10 @@ class screenshotClass:
         screenshot = pyautogui.screenshot(region=(x,y,width,height))
         screenshot.save(filepath)
 
+    def executeImage(self, section, gen):
+        self.takeSection(section, gen)
+
+        
 
 
 
