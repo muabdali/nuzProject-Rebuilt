@@ -1,6 +1,6 @@
 import pyautogui
 from autoLocke.Files.Data.CordsDict import routeCordDictionary, caughtRouteDictionary
-
+from tesseract import imgProcess
 
 class screenshotClass:
     def __init__(self):
@@ -29,8 +29,17 @@ class screenshotClass:
     def takeScreenshot(self, filepath, x, y, width, height):
         screenshot = pyautogui.screenshot(region=(x,y,width,height))
         screenshot.save(filepath)
+        self.tessRead(path=filepath, section="")
+    
+    def tessRead(self, path, section):
+        tesseractRead = imgProcess()
+        tesseractRead.imageEnhance(imagePath=path)
 
-    def executeImage(self, section, gen):
+    def fuzzyCompare(self, text, section):
+        # fuzzywuzzy comparison goes here
+        return
+
+    def executeFunction(self, section, gen):
         self.takeSection(section, gen)
 
         
