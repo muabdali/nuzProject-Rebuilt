@@ -1,5 +1,6 @@
 import pyautogui
 from autoLocke.Files.Data.CordsDict import routeCordDictionary, caughtRouteDictionary
+from fuzzyRead import fuzzChecker
 from tesseract import imgProcess
 
 class screenshotClass:
@@ -38,12 +39,16 @@ class screenshotClass:
     def tessRead(self, path, section):
         tesseractRead = imgProcess()
         tesseractResult = tesseractRead.imageEnhance(imagePath=path)
-        print(tesseractResult)
-        return tesseractResult
-
+        fuzzyResult = self.fuzzyCompare(text=tesseractResult, section=section)
+        
     def fuzzyCompare(self, text, section):
-        # fuzzywuzzy comparison goes here
-        return
+        fuzzProcess = fuzzChecker()
+        if section == "Route":
+            tocheckList = "autoLocke/Files/Data/fireredroutes.txt"
+            fuzzProcess.checkList(pokeList=tocheckList,nameToCheck=text,minScore=85)
+        elif section == "Caught":
+            tocheckList = "autoLocke/Files/Data/NatDexPokemonG3.txt"
+            fuzzProcess.checkList(pokeList=tocheckList,nameToCheck=text, minScore=85)
 
     def executeFunction(self, section, gen):
         self.takeSection(section, gen)
