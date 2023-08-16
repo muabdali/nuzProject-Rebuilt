@@ -14,7 +14,7 @@ class imgProcess():
         upper_white = np.array([255, 25, 255], dtype=np.uint8)
         white_mask = cv2.inRange(hsv_image, lower_white, upper_white)
         result = cv2.bitwise_and(img, img, mask=~white_mask)
-        print(pytesseract.image_to_string(result))
+        return result
 
 """
 ia = imgProcess()

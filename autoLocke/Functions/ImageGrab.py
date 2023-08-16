@@ -22,18 +22,24 @@ class screenshotClass:
         x, y, width, height = routeDictGen[0], routeDictGen[1], routeDictGen[2], routeDictGen[3]
         if section == "Route":
             filepath = "autoLocke/Files/Images/RouteImage.png"
-            self.takeScreenshot(filepath, x, y, width, height)
+            result = self.takeScreenshot(filepath, x, y, width, height)
+            print(result)
         else:
             filepath = "autoLocke/Files/Images/CaughtImage.png"
+            result = self.takeScreenshot(filepath, x,y,width,height)
+            print(result)
 
     def takeScreenshot(self, filepath, x, y, width, height):
         screenshot = pyautogui.screenshot(region=(x,y,width,height))
         screenshot.save(filepath)
-        self.tessRead(path=filepath, section="")
+        result = self.tessRead(path=filepath, section="")
+        return result
     
     def tessRead(self, path, section):
         tesseractRead = imgProcess()
-        tesseractRead.imageEnhance(imagePath=path)
+        tesseractResult = tesseractRead.imageEnhance(imagePath=path)
+        print(tesseractResult)
+        return tesseractResult
 
     def fuzzyCompare(self, text, section):
         # fuzzywuzzy comparison goes here
