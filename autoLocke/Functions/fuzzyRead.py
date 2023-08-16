@@ -10,7 +10,6 @@ class fuzzChecker:
             return None
         else:
             return best_match
-        return
     
 
         """
