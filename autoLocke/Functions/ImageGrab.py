@@ -70,4 +70,9 @@ takeScreenshot gets called from takeSection. It requires the filepath, x,y,width
 screenshot requested. All of these variables are given automatically from takeSection and they vary(able) based on which
 section was requested.
 
+
+fuzzyRead is a vital function for this program. Since tesseract is innacurate, there will always be spelling errors within
+the image_to_text result. FuzzyRead counters this by comparing the given text with a list of expected strings, and choosing the
+closest one. 
+
 """
