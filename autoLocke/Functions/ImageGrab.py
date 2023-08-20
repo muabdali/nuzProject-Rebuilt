@@ -1,5 +1,4 @@
 import pyautogui
-from autoLocke.Files.Data.CordsDict import routeCordDictionary, caughtRouteDictionary
 from fuzzyRead import fuzzChecker
 from tesseract import imgProcess
 
@@ -9,7 +8,7 @@ class screenshotClass:
             'fireRed':[242, 47, 745, 121],
         }
 
-        self.caughtDict = caughtRouteDictionary
+        self.caughtDict = "test"
 
 
 
@@ -23,7 +22,7 @@ class screenshotClass:
         x, y, width, height = routeDictGen[0], routeDictGen[1], routeDictGen[2], routeDictGen[3]
         if section == "Route":
             filepath = "autoLocke/Files/Images/RouteImage.png"
-            result = self.takeScreenshot(filepath, x, y, width, height)
+            result = self.takeScreenshot(filepath, x, y, width, height, "Route")
             print(result)
             
         else:
@@ -48,10 +47,10 @@ class screenshotClass:
         fuzzProcess = fuzzChecker()
         if section == "Route":
             tocheckList = "autoLocke/Files/Data/fireredroutes.txt"
-            fuzzProduct = fuzzProcess.checkList(pokeList=tocheckList,nameToCheck=text,minScore=85)
+            fuzzProduct = fuzzProcess.checkList(pokeList=tocheckList,nameToCheck=text,minScore=90)
         elif section == "Caught":
             tocheckList = "autoLocke/Files/Data/NatDexPokemonG3.txt"
-            fuzzProduct = fuzzProcess.checkList(pokeList=tocheckList,nameToCheck=text, minScore=85)
+            fuzzProduct = fuzzProcess.checkList(pokeList=tocheckList,nameToCheck=text, minScore=90)
         return fuzzProduct
     def executeFunction(self, section, gen):
         self.takeSection(section, gen)
